@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#100a2b" />
+    <meta name="description" content="Un pequeño oráculo digital hecho con magia y mucho cariño para mamá." />
+    <title>El Oráculo de Mamá</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <div class="sky" aria-hidden="true">
+      <div class="nebula nebula-one"></div>
+      <div class="nebula nebula-two"></div>
+      <div class="stars" id="stars"></div>
+      <div class="spark-layer" id="sparkLayer"></div>
+    </div>
+
+    <main id="main-content" class="app-shell">
+      <section class="screen welcome-screen is-active" id="welcome" aria-labelledby="welcome-title">
+        <div class="welcome-content">
+          <p class="eyebrow"><span>✦</span> Una señal para ti <span>✦</span></p>
+          <h1 id="welcome-title">El Oráculo<br /><em>de Mamá</em></h1>
+          <p class="intro">Hay un poquito de magia esperando por ti...</p>
+
+          <button class="oracle-orb" id="orbButton" type="button" aria-label="Tocar la esfera mágica">
+            <span class="orb-halo"></span>
+            <span class="orb-core">
+              <span class="orb-moon">☾</span>
+              <span class="orb-star star-a">✦</span>
+              <span class="orb-star star-b">✧</span>
+            </span>
+          </button>
+          <p class="orb-hint" id="orbHint">Tócame, si te da curiosidad</p>
+
+          <button class="primary-button entrance-button" id="enterButton" type="button">
+            <span>Descubrir mi magia</span><span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p class="made-with">Hecho con magia y mucho cariño para ti</p>
+      </section>
+
+      <section class="screen menu-screen" id="menu" aria-labelledby="menu-title" hidden>
+        <header class="menu-header">
+          <button class="mini-moon" id="menuMoon" type="button" aria-label="Un pequeño secreto lunar">☾</button>
+          <p class="eyebrow">Elige una puerta del cielo</p>
+          <h2 id="menu-title">¿Qué te susurra<br /><em>el universo hoy?</em></h2>
+        </header>
+
+        <div class="category-list" aria-label="Experiencias del oráculo">
+          <button class="category-card luck-card" type="button" data-category="luck">
+            <span class="category-icon" aria-hidden="true"><span class="crystal">✦</span></span>
+            <span class="category-copy">
+              <span class="category-kicker">🔮 Suerte</span>
+              <strong>Descubre tu destino</strong>
+              <small>Un guiño para el camino</small>
+            </span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="category-card surprise-card" type="button" data-category="surprise">
+            <span class="category-icon" aria-hidden="true"><span class="gift">✦</span></span>
+            <span class="category-copy">
+              <span class="category-kicker">🎁 Sorpresa</span>
+              <strong>¿Qué te espera?</strong>
+              <small>Algo inesperado se asoma</small>
+            </span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="category-card challenge-card" type="button" data-category="challenge">
+            <span class="category-icon" aria-hidden="true"><span class="comet">☄</span></span>
+            <span class="category-copy">
+              <span class="category-kicker">✨ Reto</span>
+              <strong>La misión del universo</strong>
+              <small>Una chispa para tu día</small>
+            </span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+
+        <div class="cosmic-note" aria-live="polite"><span>✦</span> Cada visita puede contar otra historia</div>
+      </section>
+
+      <section class="screen result-screen" id="result" aria-labelledby="result-title" hidden>
+        <header class="result-topbar">
+          <button class="icon-button" id="backButton" type="button" aria-label="Volver a las opciones">
+            <span aria-hidden="true">←</span>
+          </button>
+          <p id="resultEyebrow" class="eyebrow">El oráculo responde</p>
+          <span class="topbar-spacer" aria-hidden="true"></span>
+        </header>
+
+        <div class="reveal-stage" id="revealStage" aria-live="polite" aria-atomic="true">
+          <div class="reveal-orbit orbit-one" aria-hidden="true"></div>
+          <div class="reveal-orbit orbit-two" aria-hidden="true"></div>
+          <div class="mystery-card" id="mysteryCard" aria-hidden="true">
+            <span class="card-sun">☼</span>
+            <span class="card-moon">☾</span>
+            <span class="card-seal">✦</span>
+          </div>
+          <article class="message-card" id="messageCard" tabindex="-1">
+            <div class="card-ornament top-ornament" aria-hidden="true">✦</div>
+            <p class="message-label" id="messageLabel">Tu señal</p>
+            <h2 id="result-title" class="message-title">Consultando las estrellas...</h2>
+            <p class="message-text" id="messageText"></p>
+            <div class="mini-game" id="miniGame" hidden></div>
+            <p class="message-signature" id="messageSignature">— Con cariño, el universo</p>
+            <div class="card-ornament bottom-ornament" aria-hidden="true">✦</div>
+          </article>
+        </div>
+
+        <div class="result-actions">
+          <button class="primary-button" id="againButton" type="button"><span aria-hidden="true">↻</span> Otra vez</button>
+          <button class="text-button" id="menuButton" type="button">Elegir otra puerta</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

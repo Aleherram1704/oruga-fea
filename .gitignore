@@ -1,0 +1,9 @@
+# Sistema operativo y editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Archivos generados localmente
+node_modules/
+dist/
+*.log
